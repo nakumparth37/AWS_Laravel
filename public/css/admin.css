@@ -1,0 +1,7 @@
+.fixed-container {
+  position: fixed;
+  top: 50px;
+  width: 250px;
+  height: 100vh;
+  overflow: hidden;
+}

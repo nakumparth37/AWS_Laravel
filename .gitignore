@@ -1,0 +1,9 @@
+/vendor
+/node_modules
+.env
+.DS_Store
+/public/uploads
+/storage/*.key
+/.idea
+/.vscode
+laravel_AWS.zip
