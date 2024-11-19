@@ -18,6 +18,7 @@ class Product extends Model
         'stock',
         'brand',
         'categoryId',
+        'sub_categoryId',
         'thumbnail',
         'images',
         'sellerId',
