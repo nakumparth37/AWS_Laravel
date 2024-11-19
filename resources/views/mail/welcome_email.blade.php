@@ -164,7 +164,7 @@
                                                     <td class="">
                                                         <div class="">
                                                             <a style="background-color:#fa5700;border-radius:4px;color:#fff;display:inline-block;font-family:Helvetica, Arial, sans-serif;font-size:18px;font-weight:normal;line-height:50px;text-align:center;text-decoration:none;width:350px;-webkit-text-size-adjust:none;"
-                                                                href="http://laravel1.parth.nakum.radixusers2.com/login">Visit
+                                                                href="{{ url('/') }}/login">Visit
                                                                 Account and Start Managing</a>
                                                         </div>
                                                         <br>
@@ -181,7 +181,7 @@
                                                         <p>The password was auto-generated, however feel free to change
                                                             it
 
-                                                            <a href="http://laravel1.parth.nakum.radixusers2.com/forget_password"
+                                                            <a href="{{ url('/') }}/forget_password"
                                                                 style="text-decoration: underline;">
                                                                 here</a>
 

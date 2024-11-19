@@ -148,7 +148,7 @@ $(document).ready(function () {
     var productListing = $('#seller-product-listing-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: `http://laravel1.parth.nakum.radixusers2.com/seller/product-listing`,
+        ajax: `${BASE_URL}seller/product-listing`,
         columns: [
             {data: 'id', name: 'id'},
             {data: 'brand', name: 'brand'},
