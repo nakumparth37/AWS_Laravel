@@ -84,7 +84,6 @@ class ProductController extends Controller
             'brand' => $request->brand,
             'categoryId' => $request->category,
             'sellerId' => $request->seller,
-            'sub_categoryId' => $request->subCategory,
         ]);
         // Create the product
 
@@ -125,6 +124,7 @@ class ProductController extends Controller
         }
 
         $updateProduct = product::where('id', '=', $product->id)->update([
+            'sub_categoryId' => $request->subCategory,
             'thumbnail' => $urlThumbnailFile,
             'images' => $AllImages
         ]);
