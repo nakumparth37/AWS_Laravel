@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'BASE_URL' => url('/').'/public',
+    'BASE_URL' =>env('APP_URL').'/public',
 ];
