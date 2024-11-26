@@ -12,6 +12,8 @@ use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Payment;
 use GuzzleHttp\Client;
+use App\Helpers\PriceHelper;
+use App\Events\OrderPlaced;
 
 class PayPalController extends Controller
 {
@@ -140,6 +142,7 @@ class PayPalController extends Controller
 						'amount' => number_format(floatval($response['purchase_units'][0]['payments']['captures'][0]['amount']['value']),2,'.',''),
 						'payment_id' => $payment->id,
 					]);
+                    $OrderProductDetails = [];
 					foreach ($cartItems as $cartItem) {
 						$product = Product::find($cartItem->product_id);
 						if ($product->reduceStock($cartItem->quantity)) {
@@ -149,12 +152,26 @@ class PayPalController extends Controller
 								'quantity' => $cartItem->quantity,
 								'price' => $cartItem->product->price,
 							]);
+                            $product->quantity = $cartItem->quantity;
+                            $product->discountPrice = PriceHelper::calculateFinalPrice($product->price, $product->discountPercentage);
+                            $OrderProductDetails[] = $product->toArray();
 						}else{
 							DB::rollBack();
 							return redirect()->route('cart.index')->with('error', 'Not enough stock for ' . $product->title);
 						}
 					}
 					DB::commit();
+                    $data = [
+                        'orderGroupID' => $payment->id,
+                        'OrderProductDetails' => $OrderProductDetails,
+                        'address' => $address,
+                        'User_contact' => intval(Auth::user()->phone_number),
+                        'UserName' => Auth::user()->name . ' ' . Auth::user()->surname,
+                        'amount' => $response['purchase_units'][0]['payments']['captures'][0]['amount']['value'],
+                        'created_at' => $order->created_at->format('Y-m-d'),
+                        'transaction_id' => $response['id'],
+                    ];
+                    event(new OrderPlaced($data));
 					Cart::where('user_id', Auth::id())->delete();
 					return redirect()
 						->route('dashboard')
