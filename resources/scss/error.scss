@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+$error-background: #ffffff;
+$error-font-color: #333;
+$error-link-color: #fff;
+$error-link-background: #007bff;
+$error-link-hover-background: #0056b3;
+$error-font-size: 16px;
+$error-heading-size: 80px;
+$error-subheading-size: 24px;
+
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family:'Source Code Pro',monospace;
+    background-color: $error-background;
+    color: $error-font-color;
+    text-align: center;
+}
+
+.error-page {
+    max-width: 600px;
+    padding: 20px;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: $error-heading-size;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: $error-subheading-size;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: $error-font-size;
+        line-height: 1.5;
+    }
+
+    a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: $error-font-size;
+        color: $error-link-color;
+        background: $error-link-background;
+        text-decoration: none;
+        border-radius: 5px;
+
+        &:hover {
+            background: $error-link-hover-background;
+        }
+    }
+}

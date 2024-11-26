@@ -9,4 +9,5 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.sass('resources/scss/app.scss', 'public/css')
    .sass('resources/scss/admin.scss','public/css')
-   .sass('resources/scss/productDetails.scss','public/css');
+   .sass('resources/scss/productDetails.scss','public/css')
+   .sass('resources/scss/error.scss','public/css');

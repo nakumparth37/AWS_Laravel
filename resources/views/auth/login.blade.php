@@ -54,7 +54,7 @@
                             </div>
                             <div class="col-1">
                                 <a class="col-md-3 offset-md-5 " href="{{ route('login.google') }}">
-                                    <img class="google_icon" src="{{ url('/') }}/google.png" alt="google" >
+                                    <img class="google_icon" src="{{ url('/') }}/images/google.png" alt="google" >
                                 </a>
                             </div>
                         </div>

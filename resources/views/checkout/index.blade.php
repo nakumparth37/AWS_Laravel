@@ -62,7 +62,7 @@
                             <button type="submit" class="btn bg-warning mt-2 ">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <h5>Pay with</h5>
-                                    <img src="{{ url('/') }}/public/paypal.png" alt="paypal" style="width: 50px;height: 50px;">
+                                    <img src="{{ url('/') }}/images/paypal.png" alt="paypal" style="width: 50px;height: 50px;">
                                 </div>
                             </button>
                         </div>
