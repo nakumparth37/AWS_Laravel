@@ -20,11 +20,11 @@ return new class extends Migration
             $table->string('rating')->nullable();
             $table->bigInteger('stock')->default(0);
             $table->string('brand');
-            $table->unsignedBigInteger('categoryId');
-            $table->unsignedBigInteger('sub_categoryId');
-            $table->unsignedBigInteger('sellerId');
-            $table->string('thumbnail')->default(NULL);
-            $table->longText('images')->default(NULL);
+            $table->unsignedBigInteger('categoryId')->nullable();
+            $table->unsignedBigInteger('sub_categoryId')->nullable();
+            $table->unsignedBigInteger('sellerId')->nullable();
+            $table->string('thumbnail')->nullable()->default(NULL);
+            $table->longText('images')->nullable()->default(NULL);
             $table->timestamps();
             $table->foreign('categoryId')->references('id')->on('categories');
             $table->foreign('sub_categoryId')->references('id')->on('sub_categories');
